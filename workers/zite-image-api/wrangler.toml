@@ -1,0 +1,6 @@
+name = "zite-image-api"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+[ai]
+binding = "AI"

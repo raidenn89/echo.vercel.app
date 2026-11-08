@@ -1,0 +1,33 @@
+{
+  "id": "7dxhth43v2",
+  "accessMode": "external",
+  "authentication": {
+    "signup": "open",
+    "authenticationMethods": {
+      "emailSignIn": true,
+      "googleSignIn": true,
+      "sso": false
+    }
+  },
+  "pwaSettings": {
+    "enabled": true,
+    "title": "Echo",
+    "appIconUrl": "https://images.fillout.com/orgid-918023/flowpublicid-7dxhth43v2/pwa/09887a8f57bb1566/source-f54e942c5a45c26c3aad586ecc6d4477",
+    "icons": {
+      "icon192Url": "https://images.fillout.com/orgid-918023/flowpublicid-7dxhth43v2/pwa/09887a8f57bb1566/icon-192.png",
+      "icon512Url": "https://images.fillout.com/orgid-918023/flowpublicid-7dxhth43v2/pwa/09887a8f57bb1566/icon-512.png",
+      "appleTouchIconUrl": "https://images.fillout.com/orgid-918023/flowpublicid-7dxhth43v2/pwa/09887a8f57bb1566/apple-touch-icon.png",
+      "favicon32Url": "https://images.fillout.com/orgid-918023/flowpublicid-7dxhth43v2/pwa/09887a8f57bb1566/favicon-32.png"
+    },
+    "backgroundColor": "#030303"
+  },
+  "envVars": {
+    "ZITE_HORDE_API_KEY": {}
+  },
+  "seoSettings": {
+    "title": "Echo",
+    "description": "",
+    "thumbnailUrl": "",
+    "faviconUrl": ""
+  }
+}

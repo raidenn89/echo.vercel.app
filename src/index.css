@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Auto-restored theme variables */
+    --shadow-x: 0px;
+    --shadow-y: 1px;
+    --shadow-blur: 4px;
+    --shadow-spread: 0px;
+    --shadow-opacity: 0.2;
+    --shadow-color: #000000;
+    --shadow-2xs: var(--shadow-x) var(--shadow-y) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    --shadow-xs: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    --shadow-sm: var(--shadow-x) var(--shadow-y) calc(var(--shadow-blur) * 1.5) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    --shadow-md: calc(var(--shadow-x) * 2) calc(var(--shadow-y) * 2) calc(var(--shadow-blur) * 3) calc(var(--shadow-spread) - 1px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    --shadow-lg: calc(var(--shadow-x) * 4) calc(var(--shadow-y) * 4) calc(var(--shadow-blur) * 5) calc(var(--shadow-spread) - 3px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    --shadow-xl: calc(var(--shadow-x) * 6) calc(var(--shadow-y) * 6) calc(var(--shadow-blur) * 7) calc(var(--shadow-spread) - 5px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    --shadow-2xl: calc(var(--shadow-x) * 8) calc(var(--shadow-y) * 8) calc(max(0px, var(--shadow-blur) * 9 - 8px)) calc(var(--shadow-spread) - 12px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 250%), transparent);
+    --shadow: var(--shadow-md);
+
+    --background: 0 0% 98%;
+    --foreground: 0 0% 7%;
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 42%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 9%;
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 0 0% 60%;
+    --radius: 1.25rem;
+    --glass: 0 0% 100%;
+    --sidebar-background: 0 0% 96%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 0 0% 7%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 92%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 0% 60%;
+    --chart-1: 210 100% 66%;
+    --chart-2: 280 85% 72%;
+    --chart-3: 330 85% 70%;
+    --chart-4: 160 70% 55%;
+    --chart-5: 40 95% 62%;
+    --font-sans: 'Geist', system-ui, sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, monospace;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 96%;
+    --muted: 0 0% 9%;
+    --muted-foreground: 0 0% 58%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 96%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 96%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 96%;
+    --accent: 0 0% 13%;
+    --accent-foreground: 0 0% 96%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 0 0% 30%;
+    --glass: 0 0% 8%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 0 0% 96%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 13%;
+    --sidebar-ring: 0 0% 30%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body, #root { height: 100%; overscroll-behavior: none; }
+  html { -webkit-text-size-adjust: 100%; }
+  html.pwa, html.pwa body { position: fixed; inset: 0; width: 100%; overflow: hidden; }
+  html.pwa body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  html.pwa input, html.pwa textarea, html.pwa .select-text, html.pwa .select-text * { -webkit-user-select: text; user-select: text; -webkit-touch-callout: default; }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: background-color .35s cubic-bezier(.2,.8,.2,1), color .35s cubic-bezier(.2,.8,.2,1);
+  }
+  input, textarea, select { font-size: 16px; }
+}
+
+@layer components {
+  .glass {
+    background: hsl(var(--glass) / 0.6);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid hsl(var(--foreground) / 0.08);
+  }
+  .rainbow-text {
+    background: linear-gradient(90deg, #a5c8ff, #d9b8ff, #ffb8d9, #ffd8a8, #b8f0d9, #a5c8ff);
+    background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: hue 6s linear infinite;
+  }
+  .pro-text {
+    background: linear-gradient(90deg, #ffffff 0%, #cfe0ff 22%, #e6d2ff 44%, #ffd3ea 64%, #fff1d6 82%, #ffffff 100%);
+    background-size: 220% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: hue 7s linear infinite;
+  }
+  .rainbow-border { position: relative; }
+  .rainbow-border::before {
+    content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
+    background: linear-gradient(90deg, #7fb2ff, #c69bff, #ff9bc8, #ffcf8a, #8ff0c8, #7fb2ff);
+    background-size: 200% auto; animation: hue 4s linear infinite;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; opacity: .55; pointer-events: none;
+  }
+  .shimmer-line { position: relative; overflow: hidden; }
+  .shimmer-line::after {
+    content: ''; position: absolute; top: 0; left: 0; height: 1.5px; width: 40%;
+    background: linear-gradient(90deg, transparent, #9cc3ff, #e0a8ff, #ffb0d0, transparent);
+    animation: skate 0.9s linear infinite; will-change: transform;
+  }
+  .thinking-text {
+    background: linear-gradient(90deg, hsl(var(--muted-foreground)) 30%, hsl(var(--foreground)) 50%, hsl(var(--muted-foreground)) 70%);
+    background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: hue .9s linear infinite reverse;
+  }
+  .reveal { animation: reveal .3s cubic-bezier(.2,.8,.2,1) both; }
+  .eq span { display: inline-block; width: 2px; margin: 0 1px; background: currentColor; border-radius: 2px; animation: eq .8s ease-in-out infinite; transform-origin: bottom; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+}
+
+@keyframes hue { to { background-position: 200% center; } }
+@keyframes skate { from { transform: translateX(-100%); } to { transform: translateX(260%); } }
+@keyframes reveal { from { opacity: 0; } to { opacity: 1; } }
+@keyframes eq { 0%,100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
+
+/* ---------- app-like layout helpers (safe areas, keyboard, phone fit) ---------- */
+.h-app { height: var(--vvh, 100dvh); transform: translateY(var(--vvt, 0px)); min-height: 0; }
+.echo-topbar { isolation: isolate; background-color: hsl(var(--background)); padding-top: calc(var(--sat, env(safe-area-inset-top, 0px)) + .5rem); }
+html.pwa .echo-topbar { background-color: hsl(var(--background)); }
+@media (max-width: 639px) {
+  .echo-topbar { min-height: calc(3.15rem + var(--sat, 0px)); padding-bottom: .45rem; }
+  .echo-topbar .icon-btn { width: 36px; height: 36px; }
+}
+
+.pt-sat { padding-top: var(--sat, env(safe-area-inset-top, 0px)); }
+/* Extra clearance under the iOS status / black bar when installed to home screen */
+.pt-sat-2 { padding-top: calc(var(--sat, env(safe-area-inset-top, 0px)) + 0.5rem); }
+html.pwa.ios .pt-sat-2 { padding-top: calc(var(--sat, env(safe-area-inset-top, 0px)) + 0.65rem); }
+.pb-sab { padding-bottom: var(--sab, env(safe-area-inset-bottom, 0px)); }
+.pb-safe-bottom { padding-bottom: max(.75rem, var(--sab, env(safe-area-inset-bottom, 0px))); background: linear-gradient(180deg, transparent 0%, hsl(var(--background) / .88) 24%, hsl(var(--background)) 100%); }
+.pb-sab-3 { padding-bottom: calc(var(--sab, env(safe-area-inset-bottom, 0px)) + .75rem); }
+html.pwa.ios header.pt-sat-2 { min-height: calc(2.75rem + var(--sat, 0px)); }
+.px-safe { padding-left: max(.75rem, var(--sal, 0px)); padding-right: max(.75rem, var(--sar, 0px)); }
+.px-safe-4 { padding-left: max(1rem, var(--sal, 0px)); padding-right: max(1rem, var(--sar, 0px)); }
+@media (min-width: 640px) {
+  .px-safe, .px-safe-4 { padding-left: max(1.5rem, var(--sal, 0px)); padding-right: max(1.5rem, var(--sar, 0px)); }
+}
+.scroll-y { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; }
+
+/* tactile press feedback on every button */
+button:not(.no-press), [role="button"]:not(.no-press) {
+  transition: transform .18s cubic-bezier(.2,.8,.2,1), background-color .2s, opacity .2s, color .2s;
+}
+button:not(:disabled):not(.no-press):active, [role="button"]:not(.no-press):active { transform: scale(.94); }
+.icon-btn { display: grid; place-items: center; height: 40px; width: 40px; border-radius: 9999px; color: hsl(var(--muted-foreground)); }
+.icon-btn:active { background: hsl(var(--accent)); }
+@media (hover: hover) { .icon-btn:hover { background: hsl(var(--accent)); color: hsl(var(--foreground)); } }
+
+/* dialogs become bottom sheets on phones */
+@media (max-width: 639px) {
+  .m-sheet {
+    left: 0 !important; right: 0 !important; top: auto !important; bottom: 0 !important;
+    transform: none !important; width: 100% !important; max-width: none !important;
+    border-radius: 28px 28px 0 0 !important; border-bottom: 0 !important;
+    max-height: calc(var(--vvh, 100dvh) - var(--sat, 0px) - 10px) !important;
+    padding-bottom: calc(1.5rem + var(--sab, 0px)) !important;
+    padding-top: 1.75rem !important;
+    animation: sheet-up .42s cubic-bezier(.32,.72,0,1) both !important;
+  }
+  .m-sheet[data-state="closed"] { animation: sheet-down .26s cubic-bezier(.4,0,1,1) both !important; }
+  .m-sheet::before { content: ''; position: absolute; top: 8px; left: 50%; width: 38px; height: 4px; margin-left: -19px; border-radius: 4px; background: hsl(var(--foreground) / .22); }
+  .m-sheet > button:last-child { top: 12px !important; right: 12px !important; padding: 10px !important; border-radius: 9999px; background: hsl(var(--foreground) / .08); opacity: 1 !important; }
+}
+@keyframes sheet-up { from { transform: translateY(100%); opacity: .6; } to { transform: none; opacity: 1; } }
+@keyframes sheet-down { from { transform: none; } to { transform: translateY(100%); } }
+
+/* slow drifting aurora behind the welcome screen */
+@keyframes aurora { 0%,100% { transform: translate3d(-6%, -4%, 0) scale(1); } 50% { transform: translate3d(6%, 5%, 0) scale(1.15); } }
+.aurora { animation: aurora 14s ease-in-out infinite; will-change: transform; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.floaty { animation: floaty 4.5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Edge-to-edge iPhone / iPad layout: the status area shares the app surface. */
+html, body, #root { min-height: 100%; width: 100%; }
+html { background: #000; }
+body { margin: 0; }
+.echo-topbar { box-sizing: border-box; padding-top: max(.45rem, var(--sat, env(safe-area-inset-top, 0px))); }
+html.pwa .echo-topbar { background: hsl(var(--background) / .96); }
+main { min-height: 0; min-width: 0; }
+.home-hero { box-sizing: border-box; padding-bottom: max(1.5rem, var(--sab, env(safe-area-inset-bottom, 0px))); }
+.composer-dock { position: relative; isolation: isolate; }
+.composer-dock::before {
+  content: ''; position: absolute; z-index: -1; pointer-events: none;
+  left: 8%; right: 8%; bottom: -38px; height: 145px; border-radius: 50%;
+  background: linear-gradient(100deg, transparent 0%, rgba(87,145,255,.48) 18%, rgba(170,112,255,.55) 38%, rgba(255,120,188,.48) 57%, rgba(255,195,115,.42) 74%, rgba(102,226,202,.42) 88%, transparent 100%);
+  filter: blur(38px); opacity: .42; transform: translate3d(-18%, 14px, 0) scaleX(.72);
+  animation: echo-rainbow-surge 6.5s cubic-bezier(.45,0,.25,1) infinite; will-change: transform, opacity;
+}
+.composer-dock::after {
+  content: ''; position: absolute; z-index: -1; pointer-events: none;
+  left: 18%; right: 18%; bottom: -7px; height: 2px; border-radius: 100%;
+  background: linear-gradient(90deg, transparent, #7fb2ff, #c69bff, #ff9bc8, #ffcf8a, #8ff0c8, transparent);
+  filter: blur(8px); opacity: .5; transform-origin: center; animation: echo-rainbow-line 5.4s ease-in-out infinite;
+}
+.composer-surface { position: relative; z-index: 1; background-color: hsl(var(--glass) / .76); }
+@keyframes echo-rainbow-surge {
+  0%, 100% { transform: translate3d(-18%, 16px, 0) scaleX(.72) scaleY(.72); opacity: .25; }
+  48% { transform: translate3d(14%, -5px, 0) scaleX(1.08) scaleY(1); opacity: .62; }
+}
+@keyframes echo-rainbow-line {
+  0%, 100% { transform: translateX(-12%) scaleX(.72); opacity: .22; }
+  50% { transform: translateX(12%) scaleX(1.08); opacity: .72; }
+}
+@media (max-width: 639px) {
+  .echo-topbar { gap: 0; padding-bottom: .35rem; }
+  .echo-topbar .icon-btn { width: 34px; height: 36px; }
+  .home-hero { justify-content: safe center; padding-top: clamp(1rem, 4vh, 2rem); }
+  .composer-dock { padding-bottom: max(.55rem, var(--sab, env(safe-area-inset-bottom, 0px))); }
+}
+@media (max-width: 380px) {
+  .echo-topbar .icon-btn { width: 32px; }
+  .composer-surface { padding: .4rem; }
+  .composer-surface textarea { padding-inline: .6rem; }
+}
+@media (min-width: 640px) and (max-width: 1024px) {
+  .home-hero { max-width: 44rem; padding-inline: 1.5rem; }
+  .composer-dock { max-width: 46rem; }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .home-hero { justify-content: flex-start; padding-top: 1rem; padding-bottom: 1rem; }
+  .home-hero > :first-child { transform: scale(.78); }
+  .home-hero .mt-8 { margin-top: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .composer-dock::before, .composer-dock::after { animation: none; }
+}
