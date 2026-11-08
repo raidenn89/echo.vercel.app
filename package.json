@@ -7,11 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "typecheck": "zitejs check",
     "build": "npm run build --workspaces --if-present"
-  },
-  "dependencies": {
-    "zitejs": "0.0.148"
   },
   "devDependencies": {
     "vite": "^5.0.0"
